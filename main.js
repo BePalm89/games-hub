@@ -1,24 +1,51 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+import './style.css';
+import { Navbar } from './components/shared/Navbar/Navbar';
+import { ModalRules }  from './components/shared/ModalRules/ModalRulels';
+import { router, addListeners} from './router/router';
+import { goBackToDashboard } from './utils';
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+const divApp = document.querySelector('#app');
 
-setupCounter(document.querySelector('#counter'))
+const mainElement = document.createElement('main');
+
+divApp.innerHTML += Navbar();
+
+divApp.appendChild(mainElement);
+
+router();
+addListeners();
+
+const goToDashboardButton = document.querySelector('.btn-back');
+
+if (goToDashboardButton) goBackToDashboard(goToDashboardButton);
+
+
+const rulesButton = document.querySelector('.btn-rules');
+
+let isModalOpen = false;
+
+const handleOpenModal = () => {
+   
+    if(!isModalOpen) {
+        mainElement.innerHTML += ModalRules();
+        const modal = document.querySelector('#modal');
+        modal.style.display = 'flex';
+        isModalOpen = true;
+    }
+}
+
+if(rulesButton) {
+    rulesButton.addEventListener('click', handleOpenModal)
+}
+
+
+const outsideClick = (event) => {
+
+    if (isModalOpen && modal && event.target === modal) {
+        modal.style.display = 'none';
+        mainElement.removeChild(modal);
+        isModalOpen = false;
+    }
+}
+
+window.addEventListener('click', outsideClick);

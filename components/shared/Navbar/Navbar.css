@@ -1,0 +1,15 @@
+header {
+    padding: var(--padding-m) var(--padding-xl);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--gap-m)
+}
+
+header h1 {
+    font-family: var(--font-family-headings);
+    text-transform: uppercase;
+    color: var(--primary-color);
+    flex: 1;
+    text-align: center;
+}
