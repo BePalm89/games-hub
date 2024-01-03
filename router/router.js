@@ -75,4 +75,4 @@ export const addListeners = () => {
 
 window.addEventListener("popstate", router);
 
-document.addEventListener('DOMContentLoaded', router);
+//document.addEventListener('DOMContentLoaded', router);

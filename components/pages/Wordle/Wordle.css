@@ -1,0 +1,25 @@
+.wordle-container {
+    height: calc(100vh - var(--header-height));
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    gap: var(--gap-m);
+    padding: var(--padding-m);
+    min-width: 250px;
+    max-width: min(500px, 58vh, 100%);
+}
+
+#guess-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-xs);
+    color: var(--white-color);    
+}
+
+#guess-form input {
+    border: 1px solid var(--black-color);
+    background-color: var(--white-color);
+    border-radius: var(--border-radius-xs);
+    padding: var(--padding-xs);
+    text-transform: uppercase;
+}

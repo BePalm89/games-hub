@@ -49,6 +49,8 @@
     
     --border-radius-xs: 4px;
     --border-radius-s: 8px;
+
+    --header-height: 97px;
 }
 
 * {
