@@ -3,7 +3,8 @@ import { Navbar } from './components/shared/Navbar/Navbar';
 import { ModalRules }  from './components/shared/ModalRules/ModalRulels';
 import { router, addListeners} from './router/router';
 import { goBackToDashboard } from './utils';
-import { createGuessResults } from './components/pages/Wordle/Wordle';
+import { memoryGameLogic } from './utilsMemoryGame';
+
 // Create the application
 const divApp = document.querySelector('#app');
 
@@ -25,45 +26,36 @@ if (goToDashboardButton) goBackToDashboard(goToDashboardButton);
 // Open and close modal for rules
 const rulesButton = document.querySelector('.btn-rules');
 
-let isModalOpen = false;
-
 const handleOpenModal = () => {
-   
-    if(!isModalOpen) {
-        mainElement.innerHTML += ModalRules();
-        const modal = document.querySelector('#modal');
-        modal.style.display = 'flex';
-        isModalOpen = true;
-    }
+
+    mainElement.innerHTML += ModalRules();
+    const modal = document.querySelector('#modal');
+    modal.style.display = 'flex';
+    const closeButton = document.querySelector('.close');
+    closeButton.addEventListener('click', () => {
+        modal.style.display = 'none';
+        mainElement.removeChild(modal);
+        if(window.location.pathname === '/memory-game') {
+            const cardMemoryGame = document.querySelectorAll('.card-container');
+            cardMemoryGame.forEach(card => {
+                card.addEventListener('click', () => {
+                    memoryGameLogic();
+                })
+            }) 
+        }
+    })
+
 }
 
 if(rulesButton) {
     rulesButton.addEventListener('click', handleOpenModal)
 }
 
+// Memory game
+document.addEventListener('DOMContentLoaded' , () => {
+    memoryGameLogic();
+});
 
-const outsideClick = (event) => {
 
-    if (isModalOpen && modal && event.target === modal) {
-        modal.style.display = 'none';
-        mainElement.removeChild(modal);
-        isModalOpen = false;
-    }
-}
 
-window.addEventListener('click', outsideClick);
 
-// Wordle game
-const handleSubmitGuess = (event) => {
-    event.preventDefault();
-    const inputValue = document.querySelector('#guess-input').value.toUpperCase();
-    console.log(inputValue);
-    const container = document.querySelector('.wordle-container');
-    const form = document.querySelector('#guess-form');
-    createGuessResults(container,form, inputValue);
-    event.target.reset();    
-
-}
-
-const formElement = document.querySelector('#guess-form');
-formElement.addEventListener('submit', handleSubmitGuess);

@@ -16,3 +16,7 @@
 .btn-rules {
     background-color: var(--tertiary-color);
 }
+
+.btn-play-again {
+    background-color: var(--primary-color);
+}

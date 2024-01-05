@@ -23,3 +23,18 @@
     padding: var(--padding-xs);
     text-transform: uppercase;
 }
+
+.row {
+    display: flex;
+    gap: var(--gap-xs);
+    margin-bottom: var(--margin-xs)
+}
+
+.cell {
+    width: 20%;
+    display: grid;
+    place-content: center;
+    aspect-ratio: 1 / 1;
+    border: 2px solid var(--white-color);
+    background-color: var(--white-color);
+}

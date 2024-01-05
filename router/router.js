@@ -61,7 +61,7 @@ export const addListeners = () => {
 
     // Retrive the link attached to the card to navigate to the different games
     const links = document.querySelectorAll('a.link');
-
+    
     links.forEach(link => {
         link.addEventListener('click', (event) => {
             event.preventDefault();
@@ -75,4 +75,5 @@ export const addListeners = () => {
 
 window.addEventListener("popstate", router);
 
-//document.addEventListener('DOMContentLoaded', router);
+document.addEventListener('DOMContentLoaded', router);
+

@@ -1,20 +1,29 @@
 import './Wordle.css';
+import { WORDS, getWord} from './utilsWordle';
 
 export const Wordle = () => {
 
+    console.log(getWord(WORDS));
+
     const container = document.createElement('div');
     container.classList.add('wordle-container');
+    
+    const containerGuess = document.createElement('div');
+    containerGuess.classList.add('guess-container');
+    
+    const form = document.createElement('form');
+    form.id = "guess-form";
 
-    createGuessResults(container);
-    createFormInputGuess(container);
+    container.appendChild(containerGuess);
+    container.appendChild(form);
+    
+    createGuessResults(containerGuess);
+    createFormInputGuess(form);
 
     return container.outerHTML;
 }
 
-const createFormInputGuess = (container) => {
-
-    const form = document.createElement('form');
-    form.id = "guess-form";
+const createFormInputGuess = (form) => {
     
     const label = document.createElement('label');
     label.htmlFor = 'guess-input';
@@ -29,31 +38,35 @@ const createFormInputGuess = (container) => {
 
     form.appendChild(label);
     form.appendChild(input);
-
-    container.appendChild(form);
 }
 
-export const createGuessResults = (container,form, guess) => {
-    
-    const containerGuess = document.createElement('div');
-    containerGuess.classList.add('guess-container');
-    
-    const p = document.createElement('p');
-    if(guess) {
-        p.innerHTML = `${guess}`;
+export const createGuessResults = (containerGuess, guessArray) => {
+
+    for(let i = 0; i < 6; i++) {
+        const row = document.createElement('p');
+        row.classList.add('row');
+
+        for(let j = 0; j < 5; j++) {
+            const cell = document.createElement('span');
+            cell.classList.add('cell');
+            row.appendChild(cell);
+        }
+
+        containerGuess.appendChild(row);
+        
+        if(guessArray && !guessArray.lenght) {
+            guessArray.forEach(guess => {
+            
+                cell.innerHTML = 'H';
+                //return containerGuess.appendChild(row);
+            })
+        }
     }
     
-    containerGuess.appendChild(p);
 
-    container.insertBefore(containerGuess, form);
+    
 }
 
-// 2. Keeping track of guesses
-
-/* 
-When the user submits their guess, that value should be rendered within this new component.
-There should be no key warnings in the console!
-*/
 
 // 3. Guess slots
 

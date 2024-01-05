@@ -49,5 +49,9 @@ export const WORDS = [
     'HONEY',
     'FLAKE',
     'SOUND',
-  ];
+];
+
+export const getWord = (arr) => {
+  return arr[Math.floor(Math.random() * arr.length)];
+};
   
