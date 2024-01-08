@@ -1,5 +1,5 @@
 import './MemoryGame.css';
-import { CARDS_DATA } from './dataMemoryGame';
+import { CARDS_DATA } from '../../../data/memoryGameData';
 
 export const MemoryGame = () => {
 
@@ -31,11 +31,10 @@ export const MemoryGame = () => {
 
 const createCards = (container, shuffleCards) => {
 
-    for(let i = 0; i < shuffleCards.length; i++) {
-  
+    for (const card of shuffleCards) {
         const divContainer = document.createElement('div');
         divContainer.classList.add('card-container');
-        divContainer.setAttribute('data-image', String(shuffleCards[i].id));
+        divContainer.setAttribute('data-image', String(card.id));
         
         const innerCard = document.createElement('div');
         innerCard.classList.add('inner-card');
@@ -51,8 +50,8 @@ const createCards = (container, shuffleCards) => {
         backCard.classList.add('back-card');
 
         const backCardImg = document.createElement('img');
-        backCardImg.src = shuffleCards[i].imgUrl; 
-        backCardImg.alt = shuffleCards[i].name;
+        backCardImg.src = card.imgUrl; 
+        backCardImg.alt = card.name;
         
         
         frontCard.appendChild(frontCardImg);

@@ -20,3 +20,7 @@
 .btn-play-again {
     background-color: var(--primary-color);
 }
+
+.btn-start {
+    background-color: var(--tertiary-color);
+}

@@ -56,6 +56,45 @@ document.addEventListener('DOMContentLoaded' , () => {
     memoryGameLogic();
 });
 
+// Trivial gaame
+const slideQuestionCards = () => {
+    
+    const questionCards = document.querySelectorAll('.question-card');
 
+    let currentIndex = 0;
+    
+    if (currentIndex === 0 ){
+        questionCards[0].classList.add('active');
+    }
+
+    setInterval(() => {
+        questionCards[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex + 1) % questionCards.length;
+        questionCards[currentIndex].classList.add('active');
+    }, 10000);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    let startGame = false;
+    const startButton = document.querySelector('.btn-start');
+
+    const handleStartGame = () => {
+        startButton.style.display = 'none';
+        const headerGame = document.querySelectorAll('.box');
+        headerGame.forEach(element => {
+            element.style.display = 'block';
+        })
+        const mainContainer = document.querySelector('.trivial-game-main');
+        mainContainer.style.display = 'block';
+        startGame = true;
+        const timer = document.querySelector('.trivial-game-container .trivial-game-header .timer');
+        console.log(timer);
+        if(startGame) slideQuestionCards();
+    }
+
+    startButton.addEventListener('click', handleStartGame);
+
+})
 
 

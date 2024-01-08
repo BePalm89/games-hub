@@ -1,16 +1,17 @@
-.memory-game-container .memory-game-card-container {
+.memory-game-container {
     width: 75%;
+    margin: 0 auto;
+}
+
+.memory-game-container .memory-game-card-container {
     display: grid;
     grid-gap: var(--gap-m);
     grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
-    margin: 0 auto;
     margin-top: var(--margin-l);
     justify-content: center;
 }
 
 .memory-game-container .memory-game-navbar {
-    width: 75%;
-    margin: 0 auto;
     display: flex;
     justify-content: space-between;
 }

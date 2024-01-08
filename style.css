@@ -54,15 +54,14 @@
 }
 
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 html, body {
     font-family: var(--font-family-text);
     background: url('https://res.cloudinary.com/dmrv2bogq/image/upload/v1703022109/games-hub/background-games-hub_cwdera.png') rgba(19, 27, 28, 0.7);
-    background-repeat: no-repeat;
     background-size: cover;
     background-blend-mode: overlay;
 }
