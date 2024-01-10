@@ -83,16 +83,19 @@ export const memoryGameLogic = () => {
 const setTimer = (second, minute) => {
     return  setInterval(() => {
 
-    const timerElement = document.querySelector('.timer');
+    const timerElement = document.querySelector('.memory-game-container .memory-game-navbar .timer');
 
-    timerElement.innerHTML = ( minute < 10 ? "0" + minute : minute ) + ":" + 
-                             ( second < 10 ? "0" + second : second );
-    second++;
-
-    if(second === 60) {
-        minute++;
-        second = 0;
+    if(timerElement ) {
+        timerElement.innerHTML = ( minute < 10 ? "0" + minute : minute ) + ":" + 
+                                 ( second < 10 ? "0" + second : second );
+        second++;
+        
+        if(second === 60) {
+            minute++;
+            second = 0;
+        }
     }
+        
 
     }, 1000) 
 }

@@ -19,39 +19,74 @@ const createHaderGame = (container) => {
     const headerContainer = document.createElement('div');
     headerContainer.classList.add('trivial-game-header');
 
+    createStartGameButton(headerContainer);
+
+    createTimerElement(headerContainer);
+
+    createScoreElement(headerContainer);
+
+    createNumberOfQuestionsElement(headerContainer);
+
+    container.appendChild(headerContainer);
+}
+ 
+const createStartGameButton = (headerContainer) => {
     const startButton = Button('btn-start', 'Start game');
     headerContainer.innerHTML = startButton;
+}
 
+const createTimerElement = (headerContainer) => {
     const timer = document.createElement('p');
     timer.classList.add('box','timer');
-    timer.innerHTML = 'TIMER: 10'
-/*     const timerSeconds = document.createElement('span');
+    timer.innerHTML = 'TIMER: '
+    
+    const timerSeconds = document.createElement('span');
     timerSeconds.innerHTML = '10';
-    timer.appendChild(timerSeconds); */
+    timer.appendChild(timerSeconds);
+    
     headerContainer.appendChild(timer);
+}
 
+const createScoreElement = (headerContainer) => {
     const score = document.createElement('p');
     score.classList.add('box','score');
-    score.innerHTML = 'SCORE: 0';
+    score.innerHTML = 'SCORE: ';
+    
+    const scoreNumber = document.createElement('span');
+    scoreNumber.innerHTML = '00';
+    score.appendChild(scoreNumber);
+    
     headerContainer.appendChild(score);
+}
 
+const numberOfQuestion = () => {
+    const number = document.createElement('span');
+    number.innerHTML = '01';
+    return number;
+}
+
+const createNumberOfQuestionsElement = (headerContainer) => {
     const numberOfQuestions = document.createElement('p');
     numberOfQuestions.classList.add('box','number-questions');
-    numberOfQuestions.innerText = 'QUESTION: 1 / 12';
+    numberOfQuestions.innerText = `QUESTION: `;
+    numberOfQuestions.appendChild(numberOfQuestion()); 
+    numberOfQuestions.innerHTML += ` / ${TRIVIAL_QUESTIONS.length}`;
     headerContainer.appendChild(numberOfQuestions);
-
-    container.appendChild(headerContainer)
 }
 
 const createCardQuestion = (container) => {
     const questionContainer = document.createElement('div');
     questionContainer.classList.add('trivial-game-main');
 
-    for (const question of TRIVIAL_QUESTIONS) { 
+    for (const [index, question] of TRIVIAL_QUESTIONS.entries()) { 
 
         const questionCard = document.createElement('div');
         questionCard.classList.add('question-card');
         questionContainer.appendChild(questionCard);
+
+        if(index === 0) {
+            questionCard.classList.add('active');
+        }
 
         const questionCardHeaderContainer = document.createElement('div');
         questionCardHeaderContainer.classList.add('question-card-header');
@@ -67,6 +102,7 @@ const createCardQuestion = (container) => {
 
         const answersList = document.createElement('ul');
         answersList.classList.add('answers-list');
+        answersList.id = `question-${question.id}`
         questionAnswersContainer.appendChild(answersList);
 
         for (const answer of question.options) {

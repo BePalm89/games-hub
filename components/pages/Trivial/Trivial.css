@@ -1,6 +1,6 @@
 .trivial-game-container {
     width: 30%;
-    margin: 0 auto;
+    margin: var(--margin-l) auto;
 }
 
 .trivial-game-container .trivial-game-header {
@@ -46,14 +46,27 @@
     text-align: center;
     color: var(--white-color);
     padding: var(--padding-m) var(--padding-l);
-    height: 500px;
+    height: 550px;
     flex: 1 0 100%;
     display: none;
 }
 
 .trivial-game-container .trivial-game-main .question-card.active {
     display: block;
+    animation: slideInFromRight 1s ease-in-out;
 }
+
+@keyframes slideInFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(50%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 
 .trivial-game-container .trivial-game-main .question-card h4 {
     text-transform: uppercase;
@@ -72,7 +85,23 @@
 .trivial-game-container .trivial-game-main .question-card .question-card-body .answers-list li {
     background-color: var(--black-color);
     color: var(--white-color);
-    padding: var(--padding-xs);
+    padding: var(--padding-s) var(--padding-xs);
     border-radius: var(--border-radius-s);
     cursor: pointer; 
+}
+
+.trivial-game-container .trivial-game-main .question-card .question-card-body .answers-list li.correct-answer {
+    background-color: var(--tertiary-color);
+}
+
+.trivial-game-container .trivial-game-main .question-card .question-card-body .answers-list li.wrong-answer {
+    background-color: var(--primary-color);
+}
+
+.trivial-game-winner {
+    color: var(--white-color);
+    margin-top: var(--margin-s);
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-m)
 }
