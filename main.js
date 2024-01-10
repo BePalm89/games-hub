@@ -37,14 +37,21 @@ const handleOpenModal = () => {
     closeButton.addEventListener('click', () => {
         modal.style.display = 'none';
         mainElement.removeChild(modal);
-        if(window.location.pathname === '/memory-game') {
-            const cardMemoryGame = document.querySelectorAll('.card-container');
-            cardMemoryGame.forEach(card => {
-                card.addEventListener('click', () => {
-                    memoryGameLogic();
-                })
-            }) 
+        const game = window.location.pathname.slice(1)
+        switch(game) {
+            case 'memory-game':
+                memoryGameLogic();
+                break;
+            case 'trivial':
+                trivialGameLogic();
+                break;
+            case 'wordle':
+                WordleLogic();
+                break;
+            default:
+                break;
         }
+        
     })
 
 }
