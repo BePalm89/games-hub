@@ -5,6 +5,7 @@ import { router, addListeners} from './router/router';
 import { goBackToDashboard } from './utils';
 import { memoryGameLogic } from './utilsMemoryGame';
 import { trivialGameLogic } from './utilsTrivialGame';
+import { WordleLogic } from './utilsWordle';
 
 // Create the application
 const divApp = document.querySelector('#app');
@@ -62,6 +63,9 @@ document.addEventListener('DOMContentLoaded' , () => {
             break;
         case 'trivial':
             trivialGameLogic();
+            break;
+        case 'wordle':
+            WordleLogic();
         default:
             break;
     }
