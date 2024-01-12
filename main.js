@@ -6,6 +6,7 @@ import { goBackToDashboard } from './utils';
 import { memoryGameLogic } from './utilsMemoryGame';
 import { trivialGameLogic } from './utilsTrivialGame';
 import { WordleLogic } from './utilsWordle';
+import { TicTacToeLogic } from './utilsTicTacToe';
 
 // Create the application
 const divApp = document.querySelector('#app');
@@ -48,10 +49,12 @@ const handleOpenModal = () => {
             case 'wordle':
                 WordleLogic();
                 break;
+            case 'tic-tac-toe':
+                TicTacToeLogic();
+                break;
             default:
                 break;
         }
-        
     })
 
 }
@@ -73,6 +76,10 @@ document.addEventListener('DOMContentLoaded' , () => {
             break;
         case 'wordle':
             WordleLogic();
+            break;
+        case 'tic-tac-toe':
+            TicTacToeLogic();
+            break;
         default:
             break;
     }

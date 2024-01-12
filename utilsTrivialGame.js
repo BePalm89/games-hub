@@ -148,11 +148,11 @@ const gameOver = () => {
             item.classList.remove('wrong-answer');
         });
     
-        // Display the game over message with the 
+        // Display the game over message  
         const container = document.querySelector('.trivial-game-container');
         const winMessage = document.createElement('div');
         winMessage.classList.add('trivial-game-winner');
-        winMessage.innerHTML = `<p>Congrats! Your  is: ${score-1}</p>`;
+        winMessage.innerHTML = `<p>Congrats! Your score is: ${score-1}</p>`;
         container.appendChild(winMessage);
 
         score = 1;
@@ -173,4 +173,9 @@ const hideWinMesage = () => {
 const setScore = () => {
     const scoreElement = document.querySelector('.trivial-game-container .trivial-game-header .score span')
     scoreElement.innerHTML = `0${score}`;
+}
+
+
+const bannerResult = () => {
+    
 }
