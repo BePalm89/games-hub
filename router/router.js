@@ -1,6 +1,5 @@
 import { Dashboard } from '../components/pages/Dashboard/Dashboard';
 import { MemoryGame } from '../components/pages/MemoryGame/MemoryGame';
-import { RockPaperScissors } from '../components/pages/RockPaperScissors/RockPaperScissors';
 import { TicTacToe } from '../components/pages/TicTacToe/TicTacToe';
 import { Trivial } from '../components/pages/Trivial/Trivial';
 import { WhacAMole } from '../components/pages/WhacAMole/WhacAMole';
@@ -45,6 +44,10 @@ export const router = () => {
     }
 }
 
+window.addEventListener("popstate", router);
+
+document.addEventListener('DOMContentLoaded', router);
+
 export const addListeners = () => {
 
     // Retrive the link attached to the card to navigate to the different games
@@ -61,7 +64,4 @@ export const addListeners = () => {
     })
 }
 
-window.addEventListener("popstate", router);
-
-document.addEventListener('DOMContentLoaded', router);
 
