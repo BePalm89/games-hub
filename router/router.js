@@ -2,7 +2,6 @@ import { Dashboard } from '../components/pages/Dashboard/Dashboard';
 import { MemoryGame } from '../components/pages/MemoryGame/MemoryGame';
 import { TicTacToe } from '../components/pages/TicTacToe/TicTacToe';
 import { Trivial } from '../components/pages/Trivial/Trivial';
-import { WhacAMole } from '../components/pages/WhacAMole/WhacAMole';
 import { Wordle } from '../components/pages/Wordle/Wordle';
 
 const ROUTES = [
