@@ -17,24 +17,12 @@ const ROUTES = [
         component: MemoryGame
     },
     { 
-        path: '/rock-paper-scissors',
-        component: RockPaperScissors
-    },
-    { 
-        path: '/sudoku',
-        component: RockPaperScissors
-    },
-    { 
         path: '/tic-tac-toe',
         component: TicTacToe
     },
     { 
         path: '/trivial',
         component: Trivial
-    },
-    { 
-        path: '/whac-a-mole',
-        component: WhacAMole
     },
     { 
         path: '/wordle',
@@ -49,7 +37,7 @@ export const router = () => {
     const path = window.location.pathname;
     
     // Find component from the ROUTES obj
-    const { component } = ROUTES.find(route => route.path === path);
+    const { component } = ROUTES.find(route => route.path === path) || {};
 
     // If I have the component display the component in the main element
     if(component) {
