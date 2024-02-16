@@ -31,30 +31,13 @@ const rulesButton = document.querySelector('.btn-rules');
 
 const handleOpenModal = () => {
 
-    mainElement.innerHTML += ModalRules();
+    mainElement.appendChild(ModalRules()); 
     const modal = document.querySelector('#modal');
     modal.style.display = 'flex';
     const closeButton = document.querySelector('.close');
     closeButton.addEventListener('click', () => {
         modal.style.display = 'none';
         mainElement.removeChild(modal);
-        const game = window.location.pathname.slice(1)
-        switch(game) {
-            case 'memory-game':
-                memoryGameLogic();
-                break;
-            case 'trivial':
-                trivialGameLogic();
-                break;
-            case 'wordle':
-                WordleLogic();
-                break;
-            case 'tic-tac-toe':
-                TicTacToeLogic();
-                break;
-            default:
-                break;
-        }
     })
 
 }

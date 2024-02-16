@@ -53,5 +53,5 @@ const createGrid = (container) => {
     }
     
     container.appendChild(gridContainer);
-
+    
 }

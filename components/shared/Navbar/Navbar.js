@@ -9,12 +9,12 @@ export const Navbar = () => {
         return currentPath !== '/' ? Button(style, label) : '';
     }
 
-    const titleToDisplay = currentPath !== '/' ? currentPath.slice(1).replaceAll('-', ' ') : 'be palm';
+    const titleToDisplay = currentPath !== '/' ? currentPath.slice(1).replaceAll('-', ' ') : 'game hub';
 
     return `
         <header>
             ${handleButton('btn-back', 'go to dashboard')}
-            <h1>games hub - ${titleToDisplay}</h1>
+            <h1>${titleToDisplay}</h1>
             ${handleButton('btn-rules', 'view rules')}
         </header>
     `

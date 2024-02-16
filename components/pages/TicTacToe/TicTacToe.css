@@ -2,7 +2,6 @@
     color: var(--white-color);
     margin: 0 auto;
     width: 80%;
-
 }
 
 .ttt-container .ttt-header {
@@ -48,15 +47,16 @@
 .ttt-container .ttt-grid-container {
     margin-top: var(--margin-m);
     display: grid;
-    grid-template-columns: repeat(3, 150px);
+    grid-template-columns: repeat(3, minmax(100px, 150px));
+    grid-template-rows: repeat(3, minmax(100px, 150px));
     grid-gap: var(--gap-s);
     justify-content: center;
 }
 
 .ttt-container .ttt-grid-container .ttt-cell {
     background-color: var(--black-color);
-    width: 150px;
-    height: 150px;
+    width: 100%;
+    height: 100%;
     border-radius: var(--border-radius-l);
     box-shadow: 0 4px 8px rgba(124, 119, 119, 0.2);
     display: flex;

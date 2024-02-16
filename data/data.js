@@ -51,7 +51,7 @@ export const GAMES = [
             "Variations of Wordle may have different rules or additional features, but the core concept involves guessing the secret word within a limited number of attempts."
         ]
     },
-    {
+/*     {
         id: 4,
         name: 'Rock Paper Scissors',
         path: 'rock-paper-scissors',
@@ -67,8 +67,8 @@ export const GAMES = [
             "The game may have additional variations, such as lizard and Spock, to add complexity and more possible outcomes.",
             "Rock, Paper, Scissors is often used as a fair way to make a decision between two people."
         ]
-    },
-    {
+    }, */
+  /*   {
         id: 5,
         name: 'Whac A Mole',
         path: 'whac-a-mole',
@@ -85,8 +85,8 @@ export const GAMES = [
             "The player with the highest score at the end of the game is the winner.",
             "Whac-A-Mole is often enjoyed for its simple yet entertaining gameplay and is a test of hand-eye coordination."
         ]
-    },
-    {
+    }, */
+/*     {
         id: 6,
         name: 'Sudoku',
         path: 'sudoku',
@@ -103,7 +103,7 @@ export const GAMES = [
             "The game is considered solved when the entire grid is filled correctly according to the rules.",
             "Sudoku is a popular single-player game that tests pattern recognition, logical reasoning, and attention to detail."
         ]
-    },
+    }, */
     {
         id: 7,
         name: 'Trivial',

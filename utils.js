@@ -15,13 +15,13 @@ const handleGoBackToDashboard = (event) => {
 const resetHiddenVisibilityButtons = (buttonArray) => {
     buttonArray.forEach(btn => {
         const btnElement = document.querySelector(btn);
-        btnElement.style.visibility = 'hidden'
+        btnElement.remove();
     });
 }
 
 const resetTitle = () => {
     const h1 = document.querySelector('h1');
-    h1.innerText = 'game hub - be palm';
+    h1.innerText = 'game hub';
 }
 
 window.addEventListener("popstate", handleGoBackToDashboard);

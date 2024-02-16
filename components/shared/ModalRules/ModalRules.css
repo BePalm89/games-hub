@@ -24,6 +24,9 @@
     gap: var(--gap-m);
     border-radius: var(--border-radius-s);
     width: 60%;
+    text-align: justify;
+    font-size: clamp(var(--font-size-xs), 2vw, var(--font-size-m));
+
 }
 
 .modal-header {
@@ -47,4 +50,11 @@
 
 .modal-body ul li {
     margin-bottom: var(--margin-xs);
+}
+
+@media ( max-width: 700px ) {
+    .modal-content {
+        padding: var(--padding-m) var(--padding-s);
+        width: 90%;
+    }
 }
