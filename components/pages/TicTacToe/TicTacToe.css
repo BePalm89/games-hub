@@ -94,3 +94,9 @@
     margin-top: var(--margin-s);
     cursor: pointer;
 }
+
+@media( max-width: 560px) {
+    .ttt-container .ttt-grid-container .result-container {
+        width: 100%;
+    }
+}
