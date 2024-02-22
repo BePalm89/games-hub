@@ -33,7 +33,7 @@
 
 .trivial-game-container .trivial-game-main {
     margin-top: var(--margin-xl);
-    display: flex;
+    display: none;
     gap: var(--gap-l);
 }
 
